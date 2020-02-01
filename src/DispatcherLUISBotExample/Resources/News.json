@@ -1,0 +1,511 @@
+{
+  "luis_schema_version": "4.0.0",
+  "versionId": "0.1",
+  "name": "News",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "News.Everything"
+    },
+    {
+      "name": "News.TopHeadlines"
+    },
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "News.Language",
+      "roles": []
+    },
+    {
+      "name": "News.Query",
+      "roles": []
+    },
+    {
+      "name": "News.Source",
+      "roles": []
+    }
+  ],
+  "composites": [],
+  "closedLists": [
+    {
+      "name": "News.Category",
+      "subLists": [
+        {
+          "canonicalForm": "technology",
+          "list": []
+        },
+        {
+          "canonicalForm": "sports",
+          "list": []
+        },
+        {
+          "canonicalForm": "science",
+          "list": []
+        },
+        {
+          "canonicalForm": "health",
+          "list": []
+        },
+        {
+          "canonicalForm": "general",
+          "list": []
+        },
+        {
+          "canonicalForm": "entertainment",
+          "list": []
+        },
+        {
+          "canonicalForm": "business",
+          "list": []
+        }
+      ],
+      "roles": []
+    }
+  ],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [
+    {
+      "name": "datetimeV2",
+      "roles": [
+        "From",
+        "To"
+      ]
+    },
+    {
+      "name": "dimension",
+      "roles": []
+    },
+    {
+      "name": "geographyV2",
+      "roles": []
+    },
+    {
+      "name": "temperature",
+      "roles": []
+    },
+    {
+      "name": "url",
+      "roles": []
+    }
+  ],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [
+    {
+      "pattern": "(get|read|what[s]) (stories|story) about {News.Query} in {News.Language}",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "(read|get|new[s]) about {News.Query}",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "read news published {datetimeV2} about {News.Query}",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "what did {News.Query} said {datetimeV2}?",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "(get me|read|show) {News.Query} news [in] {News.Language} [language]",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "(what|get|read) {News.Source}",
+      "intent": "News.TopHeadlines"
+    },
+    {
+      "pattern": "(get me|read|show) {News.Query} news",
+      "intent": "News.TopHeadlines"
+    },
+    {
+      "pattern": "(what|get|read) {News.Source} (say[s]|said|publish[ed]) about {News.Query}",
+      "intent": "News.TopHeadlines"
+    },
+    {
+      "pattern": "(story|stories) about {News.Query}",
+      "intent": "News.Everything"
+    },
+    {
+      "pattern": "(get|read|what) {News.Category} news",
+      "intent": "News.Everything"
+    }
+  ],
+  "utterances": [
+    {
+      "text": "(get|read|what) technology news",
+      "intent": "News.Everything",
+      "entities": []
+    },
+    {
+      "text": "(get|read|what[s]) (stories|story) about quantum computing in spanish",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 41,
+          "endPos": 57
+        },
+        {
+          "entity": "News.Language",
+          "startPos": 62,
+          "endPos": 68
+        }
+      ]
+    },
+    {
+      "text": "breaking news",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "breaking news in jordan",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "business headlines",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "general headlines from qatar posted by bloomberg",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 39,
+          "endPos": 47
+        }
+      ]
+    },
+    {
+      "text": "get all news in frensh",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Language",
+          "startPos": 16,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "get latest entertainment news in dubai from aljazeera",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 44,
+          "endPos": 52
+        }
+      ]
+    },
+    {
+      "text": "get me all news in arabic",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Language",
+          "startPos": 19,
+          "endPos": 24
+        }
+      ]
+    },
+    {
+      "text": "get me france headlines",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me latest headlines",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me latest news",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me latest news for bitcoin",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 23,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "get me latest sports updates from egypt",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me latest technology news",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me latest updates in uae",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me posts from microsoft.com and reuters.com",
+      "intent": "News.Everything",
+      "entities": []
+    },
+    {
+      "text": "get me posts regarding ignite the tour",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 23,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "get me science headlines",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "get me yesterday news about trump",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 28,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "get news updates from last march",
+      "intent": "News.Everything",
+      "entities": []
+    },
+    {
+      "text": "gold prices",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 0,
+          "endPos": 3
+        }
+      ]
+    },
+    {
+      "text": "how is the world is doing right now?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "latest news from aljazeera",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 17,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "read news published between 01/01/2020 to 03/01/2020 about bitcoin",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "datetimeV2",
+          "role": "From",
+          "startPos": 28,
+          "endPos": 37
+        },
+        {
+          "entity": "datetimeV2",
+          "role": "To",
+          "startPos": 42,
+          "endPos": 51
+        },
+        {
+          "entity": "News.Query",
+          "startPos": 59,
+          "endPos": 65
+        }
+      ]
+    },
+    {
+      "text": "read yesterday news from cnn",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 25,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "saudi arabia headlines",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "show me articles from microsoft.com , reuters.com",
+      "intent": "News.Everything",
+      "entities": []
+    },
+    {
+      "text": "show me posts about ignite the tour from microsoft.com",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 20,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "story about test in ar",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 12,
+          "endPos": 15
+        },
+        {
+          "entity": "News.Language",
+          "startPos": 20,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "technology headlines from cnn",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 26,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "what aljazeera says about fifa?",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 5,
+          "endPos": 13
+        },
+        {
+          "entity": "News.Query",
+          "startPos": 26,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "what aljazeera.com says?",
+      "intent": "News.Everything",
+      "entities": []
+    },
+    {
+      "text": "what are the latest news?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "what are the latest updates in the health sector?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "what are the latest updates?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "what cnn says?",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Source",
+          "startPos": 5,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "what did nancy said",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "what did trump said last night?",
+      "intent": "News.Everything",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "what is happening in kuwait?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "what is happening now?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "what's all the isis fuss",
+      "intent": "News.TopHeadlines",
+      "entities": [
+        {
+          "entity": "News.Query",
+          "startPos": 15,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "what's up?",
+      "intent": "News.TopHeadlines",
+      "entities": []
+    },
+    {
+      "text": "yesterday headlines",
+      "intent": "News.Everything",
+      "entities": []
+    }
+  ],
+  "settings": []
+}
